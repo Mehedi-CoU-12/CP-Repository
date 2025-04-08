@@ -1,0 +1,11 @@
+1️⃣ Encapsulation 🔒
+    Encapsulation means hiding the internal details of an object and only exposing the necessary functionalities. It restricts direct access to some data and prevents accidental modification.
+
+2️⃣ Abstraction 🎭
+    Abstraction means hiding complex implementation details and showing only the necessary features. It allows users to interact with an object without worrying about its internal workings.
+
+3️⃣ Inheritance 🏗
+    Inheritance allows a class to reuse properties and behaviors from another class
+
+4️⃣ Polymorphism 🎭🔄
+    Polymorphism means one function or method can take multiple forms. It allows objects of different classes to be treated as objects of a common base class.
