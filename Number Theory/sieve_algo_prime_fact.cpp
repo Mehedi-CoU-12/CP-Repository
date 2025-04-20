@@ -25,7 +25,7 @@ void sieve2(){
 }
 
 //sieve algorithm;
-vector<int>isPrime(N,1),prime,primeDivisor;
+vector<int>isPrime(N,1),prime;
 void sieve()
 {
     for(int i=2;i<N;i++)
@@ -49,7 +49,7 @@ vector<ll> primeFactorization(int n)  //divide any number with prime number;
     {
         if(n%prime[i]==0)
         {
-            // primeDivisor.push_back(prime[i]);
+            // prime_divisor.push_back(prime[i]);
 
             while(n%prime[i]==0){
                 prime_divisor.push_back(prime[i]);
