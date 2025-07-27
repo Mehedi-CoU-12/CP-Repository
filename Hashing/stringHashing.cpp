@@ -92,11 +92,16 @@ public:
     }
 
     void build(const string& s) {
+
+        ll  n=s.size();
+        inv.assign(n+6, 0);
+        dp.assign(n+6, 0);
+
         ll p_power = 1;
         inv[0] = 1;
         dp[0] = (s[0] - 'a') + 1;
 
-        for (int i = 1; i < s.size(); i++) {
+        for (int i = 1; i < n; i++) {
             p_power = (p_power * p) % mod;
             inv[i] = binaryExpo(p_power, mod - 2);
             dp[i] = (dp[i - 1] + (s[i] - 'a' + 1) * p_power) % mod;
