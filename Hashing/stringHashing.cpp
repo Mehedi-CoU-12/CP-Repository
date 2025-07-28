@@ -66,7 +66,6 @@ Space: O(n) for both dp and inv
 
 class StringHasher {
 private:
-    const int N = 1e6 + 5;
     vector<ll> inv, dp;
     ll p = 31;
     ll MOD=1e9+7;
