@@ -69,20 +69,20 @@ private:
     const int N = 1e6 + 5;
     vector<ll> inv, dp;
     ll p = 31;
-    ll mod=1e9+7;
+    ll MOD=1e9+7;
 
     ll binaryExpo(ll a, ll b) {
         ll res = 1;
         while (b) {
             if (b % 2 == 1) {
-                res = (res * a) % mod;
+                res = (res * a) % MOD;
                 b--;
             } else {
-                a = (a * a) % mod;
+                a = (a * a) % MOD;
                 b /= 2;
             }
         }
-        return res % mod;
+        return res % MOD;
     }
 
 public:
@@ -97,17 +97,17 @@ public:
         dp[0] = (s[0] - 'a') + 1;
 
         for (int i = 1; i < n; i++) {
-            p_power = (p_power * p) % mod;
-            inv[i] = binaryExpo(p_power, mod - 2);
-            dp[i] = (dp[i - 1] + (s[i] - 'a' + 1) * p_power) % mod;
+            p_power = (p_power * p) % MOD;
+            inv[i] = binaryExpo(p_power, MOD - 2);
+            dp[i] = (dp[i - 1] + (s[i] - 'a' + 1) * p_power) % MOD;
         }
     }
 
     ll getHash(int l, int r) {
         ll result = dp[r];
         if (l > 0) result -= dp[l - 1];
-        result = (result * inv[l]) % mod;
-        if (result < 0) result += mod;
+        result = (result * inv[l]) % MOD;
+        if (result < 0) result += MOD;
         return result;
     }
 
