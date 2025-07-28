@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #define ll long long int
+#define mod 1000000007
 using namespace std;
 
 /*
@@ -66,28 +67,27 @@ Space: O(n) for both dp and inv
 
 class StringHasher {
 private:
+    const int N = 1e6 + 5;
     vector<ll> inv, dp;
     ll p = 31;
-    ll MOD=1e9+7;
 
     ll binaryExpo(ll a, ll b) {
         ll res = 1;
         while (b) {
             if (b % 2 == 1) {
-                res = (res * a) % MOD;
+                res = (res * a) % mod;
                 b--;
             } else {
-                a = (a * a) % MOD;
+                a = (a * a) % mod;
                 b /= 2;
             }
         }
-        return res % MOD;
+        return res % mod;
     }
 
 public:
     void build(const string& s) {
-
-        ll  n=s.size();
+        ll n=s.size();
         inv.assign(n+6, 0);
         dp.assign(n+6, 0);
 
@@ -95,27 +95,25 @@ public:
         inv[0] = 1;
         dp[0] = (s[0] - 'a') + 1;
 
-        for (int i = 1; i < n; i++) {
-            p_power = (p_power * p) % MOD;
-            inv[i] = binaryExpo(p_power, MOD - 2);
-            dp[i] = (dp[i - 1] + (s[i] - 'a' + 1) * p_power) % MOD;
+        for (int i = 1; i < s.size(); i++) {
+            p_power = (p_power * p) % mod;
+            inv[i] = binaryExpo(p_power, mod - 2);
+            dp[i] = (dp[i - 1] + (s[i] - 'a' + 1) * p_power) % mod;
         }
     }
 
     ll getHash(int l, int r) {
         ll result = dp[r];
-        if (l > 0) result -= dp[l - 1];
-        result = (result * inv[l]) % MOD;
-        if (result < 0) result += MOD;
+
+        if (l > 0) 
+        result -= dp[l - 1];
+
+        result = (result * inv[l]) % mod;
+
+        if (result < 0) 
+        result += mod;
+
         return result;
-    }
-
-    ll getPrefixHash(int i) {
-        return dp[i];
-    }
-
-    ll getInverse(int i) {
-        return inv[i];
     }
 };
 
@@ -125,10 +123,6 @@ int main() {
 
     StringHasher hasher;
     hasher.build(s);
-
-    for (int i = 0; i < s.size(); i++) {
-        cout << i + 1 << " -> " << hasher.getPrefixHash(i) << " inv: " << hasher.getInverse(i) << endl;
-    }
 
     return 0;
 }
