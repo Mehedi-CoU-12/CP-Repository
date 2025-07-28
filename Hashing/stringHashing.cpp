@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define ll long long int
-#define mod 1000000007
 using namespace std;
 
 /*
@@ -70,6 +69,7 @@ private:
     const int N = 1e6 + 5;
     vector<ll> inv, dp;
     ll p = 31;
+    ll mod=1e9+7;
 
     ll binaryExpo(ll a, ll b) {
         ll res = 1;
@@ -86,11 +86,6 @@ private:
     }
 
 public:
-    StringHasher() {
-        inv.assign(N, 0);
-        dp.assign(N, 0);
-    }
-
     void build(const string& s) {
 
         ll  n=s.size();
