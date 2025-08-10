@@ -7,7 +7,7 @@
             "#define mod 1000000007",
             "#define endl '\\n'",
             "#define yes cout<<\"Yes\\n\"",
-            "#define no cout<<\"No\\n\"<<endl",
+            "#define no cout<<\"No\\n\"",
             "#define ff first",
             "#define ss second",
             "#define output(v) for(auto it:v)cout<<it<<' ';cout<<endl;",
