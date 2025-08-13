@@ -71,7 +71,9 @@
         "charconv": "cpp",
         "optional": "cpp",
         "string_view": "cpp",
-        "*.clang-format": "cpp"
+        "*.clang-format": "cpp",
+        "span": "cpp",
+        "stacktrace": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabledIfIncludesResolve",
     "cmake.sourceDirectory": "C:/Users/mehed/OneDrive/Desktop/CP/ac-library/test/benchmark"
