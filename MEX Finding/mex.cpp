@@ -71,5 +71,6 @@ public:
 
 
 int main(){
-    
+    vector<int> A = {0, 1, 2, 3, 5};
+    Mex m1(A);
 }
