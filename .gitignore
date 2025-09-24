@@ -7,3 +7,5 @@ template.cpp
 
 */.cph
 */.vscode
+*.cph
+*.vscode
