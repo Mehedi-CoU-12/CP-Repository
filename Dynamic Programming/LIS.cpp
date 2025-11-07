@@ -10,7 +10,7 @@ using namespace std;
 
 //============================== lis(dp) =============================================
 //tc= n*n;
-int longest_increasing_subsequence(int i,int prev_i,int n,vector<int>&v,vector<vector<int>>&dp)
+int longest_increasing_subsequence_dp(int i,int prev_i,int n,vector<int>&v,vector<vector<int>>&dp)
 {
     if(i==n)
     return 0;
@@ -19,10 +19,10 @@ int longest_increasing_subsequence(int i,int prev_i,int n,vector<int>&v,vector<v
     return dp[i][prev_i+1];
 
     int pick=0,notPick=0;
-    notPick=0+longest_increasing_subsequence(i+1,prev_i,n,v,dp);
+    notPick=0+longest_increasing_subsequence_dp(i+1,prev_i,n,v,dp);
 
     if(prev_i==-1 or v[prev_i]<v[i])
-    pick=1+longest_increasing_subsequence(i+1,i,n,v,dp);
+    pick=1+longest_increasing_subsequence_dp(i+1,i,n,v,dp);
 
     return dp[i][prev_i+1] = max(pick,notPick);
 }
@@ -32,13 +32,14 @@ int longest_increasing_subsequence(int i,int prev_i,int n,vector<int>&v,vector<v
     //tc=nlog(n);
     //longest decreasing subsequence just multiplies all elements with -1;
     
-int longest_increasing_subsequence(vector<int>v)
+void longest_increasing_subsequence_bs(vector<int>v)
 {
-    
+
     vector<int>lis,final_lis(v.size()),ans;
     
     for(int i=0;i<v.size();i++)
     {
+        //use lis.back()<= v[i] for equal elements
         if(lis.empty() or lis.back()<v[i])
         {
             lis.push_back(v[i]);
@@ -84,5 +85,5 @@ int main()
     for(auto &it:v)
     cin>>it;
 
-    longest_increasing_subsequence(v);
+    longest_increasing_subsequence_bs(v);
 }
