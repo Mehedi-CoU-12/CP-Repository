@@ -5,6 +5,8 @@ using namespace std;
 in bubble sort we compare two value and swap if the left value is greater than the 
 right one. our goal is the move the largest value to the right and continue this 
 process.
+
+time complexity: O(n^2)
 */
 
 

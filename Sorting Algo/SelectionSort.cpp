@@ -4,6 +4,8 @@ using namespace std;
 /*
 in selection sort we try to move the smallest element to the left side of the array
 
+
+time complexity: O(n^2)
 */
 
 
