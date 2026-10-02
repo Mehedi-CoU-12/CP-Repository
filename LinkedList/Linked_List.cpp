@@ -17,7 +17,7 @@ public:
     }
 };
 
-Node* convert2LL(vector<int>arr){
+Node* convertArray2LL(vector<int>arr){
     Node* head=new Node(arr[0]);
     Node* mover=head;
 
@@ -30,13 +30,70 @@ Node* convert2LL(vector<int>arr){
     return head;
 }
 
-int main()
-{
-    vector<int>arr={3,5,8,2,1,10};
-    Node *head=convert2LL(arr);
 
+//print
+void print(Node* head){
     while(head!=nullptr){
         cout<<head->data<<" ";
         head=head->next;
     }
+    cout<<endl;
+}
+
+//remove head
+Node* removeHead(Node* head){
+    if(head==NULL)
+    return head;
+
+    Node* temp=head;
+    head=head->next;
+
+    delete temp;
+
+    return head;
+}
+
+//remove kth node
+Node* removeKthNode(Node* head,int k){
+    if(head==NULL)
+    return head;
+
+    if(k==1){
+        Node* temp=head;
+        head=head->next;
+
+        delete temp;
+
+        return head;
+    }
+
+    int cnt=0;
+    Node* temp=head;
+    Node* prev=NULL;
+
+    while(temp!=NULL){
+        cnt++;
+
+        if(cnt==k){
+            prev->next=prev->next->next;
+            delete temp;
+            break;
+        }
+
+        prev=temp;
+        temp=temp->next;
+    }
+
+    return head;
+}
+
+
+int main()
+{
+    vector<int>arr={3,5,8,2,1,10};
+    Node *head=convertArray2LL(arr);
+    
+    Node* head2=removeKthNode(head,1);
+    
+    print(head2);
 }
