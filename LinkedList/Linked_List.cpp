@@ -88,12 +88,53 @@ Node* removeKthNode(Node* head,int k){
 }
 
 
+//remove element
+Node* removeElement(Node* head,int value){
+    if(head==NULL)
+    return head;
+
+    if(head->data==value){
+        Node* temp=head;
+        head=head->next;
+
+        delete temp;
+
+        return head;
+    }
+
+    Node* temp=head;
+    Node* prev=NULL;
+
+    while(temp!=NULL){
+        if(temp->data==value){
+            prev->next=prev->next->next;
+            
+            delete temp;
+            break;
+        }
+
+        prev=temp;
+        temp=temp->next;
+    }
+
+    return head;
+}
+
+
+//insert the head
+Node* insertHead(Node* head,int value){
+    Node* newHead=new Node(value,head);
+
+    return newHead;
+}
+
 int main()
 {
     vector<int>arr={3,5,8,2,1,10};
     Node *head=convertArray2LL(arr);
+
+    // Node* head2=removeKthNode(head,1);
+    Node* head3=removeElement(head,3);
     
-    Node* head2=removeKthNode(head,1);
-    
-    print(head2);
+    print(head3);
 }
