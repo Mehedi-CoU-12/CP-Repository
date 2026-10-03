@@ -143,6 +143,7 @@ Node* insertInTheTail(Node* head,int value){
     return head;
 }
 
+//insert at any positions
 Node* insertInKthPosition(Node* head,int value,int k){
     if(head==NULL){
         if(k==1)
@@ -173,6 +174,30 @@ Node* insertInKthPosition(Node* head,int value,int k){
     return head;
 }
 
+
+//insert at the right before any value
+Node* insertBeforeValue(Node* head,int value,int replaceValue){
+    if(head==NULL)
+    return head;
+
+
+    if(head->data==value)
+    return new Node(replaceValue,head);
+
+    Node* temp=head;
+    while(temp->next!=NULL){
+        if(temp->next->data==value){
+            Node* newNode=new Node(replaceValue,temp->next);
+            temp->next=newNode;
+            break;
+        }
+
+        temp=temp->next;
+    }
+
+    return head;
+}
+
 int main()
 {
     vector<int>arr={3,5,8,2,1,10};
@@ -183,6 +208,7 @@ int main()
     // Node* head4=insertHead(head,4);
     // Node* head5=insertInTheTail(head,3);
     // Node* head6=insertInKthPosition(head,11,2);
+    Node* head7=insertBeforeValue(head,3,2);
     
-    print(head);
+    print(head7);
 }
