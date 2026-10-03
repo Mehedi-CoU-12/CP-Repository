@@ -1,13 +1,28 @@
 #include<bits/stdc++.h>
-#define ll long long int
-#define MOD 1000000007
-#define yes cout<<"YES"<<endl
-#define no cout<<"NO"<<endl
-#define ff first
-#define ss second
-const int N = (int)1e6 + 5;
-const int M=(int)1e8+5;
 using namespace std;
+
+/*
+7 16
+
+1 2 
+1 6
+2 1
+2 3
+2 4
+2 5
+3 2
+3 6
+4 2
+4 5
+5 2 
+5 4
+6 1
+6 3
+6 7
+7 6
+
+
+*/
 
 void dfs(int vertex,vector<int>g[],vector<int>&vis)
 {
