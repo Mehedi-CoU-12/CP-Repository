@@ -128,13 +128,61 @@ Node* insertHead(Node* head,int value){
     return newHead;
 }
 
+//insert in the tail
+Node* insertInTheTail(Node* head,int value){
+    if(head==NULL)
+    return new Node(value,head);
+
+    Node* temp=head;
+    while(temp->next!=NULL)
+    temp=temp->next;
+
+    Node* newNode=new Node(value);
+    temp->next=newNode;
+
+    return head;
+}
+
+Node* insertInKthPosition(Node* head,int value,int k){
+    if(head==NULL){
+        if(k==1)
+        return new Node(value,head);
+        else
+        return head;
+    }
+
+    if(k==1){
+        return new Node(value,head);
+    }
+
+    int cnt=0;
+    Node* temp=head;
+    while(temp!=NULL){
+        cnt++;
+
+        if(cnt==k-1){
+            Node* newNode=new Node(value);
+            newNode->next=temp->next;
+            temp->next=newNode;
+            break;
+        }
+
+        temp=temp->next;
+    }
+
+    return head;
+}
+
 int main()
 {
     vector<int>arr={3,5,8,2,1,10};
     Node *head=convertArray2LL(arr);
 
     // Node* head2=removeKthNode(head,1);
-    Node* head3=removeElement(head,3);
+    // Node* head3=removeElement(head,3);
+    // Node* head4=insertHead(head,4);
+    // Node* head5=insertInTheTail(head,3);
+    // Node* head6=insertInKthPosition(head,11,2);
     
-    print(head3);
+    print(head);
 }
