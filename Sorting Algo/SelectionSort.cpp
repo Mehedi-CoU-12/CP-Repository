@@ -3,7 +3,7 @@ using namespace std;
 
 /*
 in selection sort we try to move the smallest element to the left side of the array.
-first we find the smallest elements then swap it with the current index. that's how
+first we find the smallest elements then swap it with the current index's value. that's how
 we continue the process.
 
 time complexity: O(n^2)

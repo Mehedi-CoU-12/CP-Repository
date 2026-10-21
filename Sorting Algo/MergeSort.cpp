@@ -1,6 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+time complexity: O(nlogn)
+*/
+
 void merge(int low,int mid,int high,vector<int>&v)
 {
     int left=low;
